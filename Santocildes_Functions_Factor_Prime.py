@@ -4,8 +4,22 @@ print("")
 print("[1] is to find the smallest factor")
 print("[2] is to find a prime number of range")
 print("")
-find = float(input("Choose either 1 or 2: "))
-print("")
+
+while True:
+    try:
+        find = float(input("Choose either 1 or 2: "))
+        if find < 1:
+            print("Please choose from 1 or 2 only.")
+            print("")
+            continue
+        if find > 2:
+            print("Please choose from 1 or 2 only.")
+            print("")
+            continue
+    except ValueError:
+        print("You must enter a number from 1 or 2 only.")
+        continue
+    break
 
 if find == 1:
     print("You have chosen to find the smallest factor of a number.")
@@ -49,6 +63,8 @@ elif find == 2:
 
     while True:
         try:
+            print("")
+            print('')
             lower = int(input("Enter a starting digit: "))
             if lower < 0:
                 print("You must enter a non-negative integer!")
@@ -72,8 +88,8 @@ elif find == 2:
                 continue
             break
 
-        print("Prime numbers between", lower, "and", upper, "are:")
+        print("Prime numbers between", lower, "and", upper, "are:", end=' ')
 
         for num in range(lower, upper + 1):
             if is_prime(num):
-                print(num)
+                print(num, end=' ')
